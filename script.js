@@ -2,13 +2,34 @@ var OS_API_KEY = "vt6TzPGU43fdeK6Pjg52sbWXshKSrxB5";
 
 var map = L.map("map").setView([57.1, -3.7], 8);
 
-L.tileLayer(
+var osAttribution = "Contains OS data &copy; Crown copyright and database right 2026";
+
+var osOutdoor = L.tileLayer(
   "https://api.os.uk/maps/raster/v1/zxy/Outdoor_3857/{z}/{x}/{y}.png?key=" + OS_API_KEY,
-  {
-    attribution: "Contains OS data &copy; Crown copyright and database right 2026",
-    maxZoom: 20,
-  }
+  { attribution: osAttribution, maxZoom: 20 }
 ).addTo(map);
+
+var osLight = L.tileLayer(
+  "https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=" + OS_API_KEY,
+  { attribution: osAttribution, maxZoom: 20 }
+);
+
+var osRoad = L.tileLayer(
+  "https://api.os.uk/maps/raster/v1/zxy/Road_3857/{z}/{x}/{y}.png?key=" + OS_API_KEY,
+  { attribution: osAttribution, maxZoom: 20 }
+);
+
+var satellite = L.tileLayer(
+  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+  { attribution: "&copy; Esri, Maxar, Earthstar Geographics", maxZoom: 19 }
+);
+
+L.control.layers({
+  "OS Outdoor": osOutdoor,
+  "OS Light": osLight,
+  "OS Road": osRoad,
+  "Satellite": satellite,
+}).addTo(map);
 
 var allMarkers = [];
 
