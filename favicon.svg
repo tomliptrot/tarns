@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Sky -->
+  <rect width="64" height="64" rx="8" fill="#4a90d9"/>
+  <!-- Mountains -->
+  <polygon points="0,48 16,20 32,48" fill="#5c6b3c"/>
+  <polygon points="20,48 40,14 60,48" fill="#4a5a30"/>
+  <!-- Snow caps -->
+  <polygon points="40,14 36,22 44,22" fill="#fff"/>
+  <polygon points="16,20 13,26 19,26" fill="#eef"/>
+  <!-- Lake -->
+  <ellipse cx="32" cy="52" rx="28" ry="10" fill="#2e6cb5"/>
+  <ellipse cx="32" cy="50" rx="20" ry="5" fill="#6ab0e8" opacity="0.4"/>
+</svg>
