@@ -13,7 +13,11 @@ var map = L.map("map", {
   minZoom: 0,
   maxZoom: 13,
   center: [57.1, -3.7],
-  zoom: 4
+  zoom: 1
+});
+
+map.on("zoomend", function () {
+  console.log("Zoom level:", map.getZoom());
 });
 
 var osAttribution = "Contains OS data &copy; Crown copyright and database right 2026";
