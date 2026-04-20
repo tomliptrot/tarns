@@ -71,6 +71,9 @@ fetch("scottish_high_lochs.csv")
       });
 
       marker.bindTooltip(formatTooltip(row));
+      marker.on("click", function () {
+        map.setView([row.lat, row.lon], 14);
+      });
       marker.addTo(map);
 
       allMarkers.push({ marker: marker, row: row, elevation: row.elevation, length_m: row.length_m });
