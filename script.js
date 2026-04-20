@@ -59,7 +59,7 @@ fetch("scottish_high_lochs.csv")
 
       marker.addTo(map);
 
-      allMarkers.push({ marker: marker, elevation: row.elevation, length_m: row.length_m });
+      allMarkers.push({ marker: marker, row: row, elevation: row.elevation, length_m: row.length_m });
 
       if (row.elevation < elevMin) elevMin = row.elevation;
       if (row.elevation > elevMax) elevMax = row.elevation;
@@ -106,4 +106,34 @@ function applyFilters() {
   });
 
   document.getElementById("count").textContent = shown;
+}
+
+function exportCSV() {
+  var visible = allMarkers.filter(function (item) {
+    return map.hasLayer(item.marker);
+  });
+
+  if (visible.length === 0) return;
+
+  var columns = Object.keys(visible[0].row);
+  var lines = [columns.join(",")];
+
+  visible.forEach(function (item) {
+    var values = columns.map(function (col) {
+      var val = item.row[col];
+      if (typeof val === "string" && (val.indexOf(",") !== -1 || val.indexOf('"') !== -1)) {
+        return '"' + val.replace(/"/g, '""') + '"';
+      }
+      return val;
+    });
+    lines.push(values.join(","));
+  });
+
+  var blob = new Blob([lines.join("\n")], { type: "text/csv" });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "scottish_high_lochs_filtered.csv";
+  a.click();
+  URL.revokeObjectURL(url);
 }
