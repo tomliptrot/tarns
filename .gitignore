@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Terrain data (large)
+terr50_gagg_gb.zip
+terr50_gagg_gb/
+
+# Old Folium output
+scottish_high_lochs.html

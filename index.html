@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scottish High Lochs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!-- Serve locally with: python -m http.server -->
+<body>
+  <div id="map"></div>
+  <div id="filter-panel">
+    <h3>Filters</h3>
+    <div class="filter-group">
+      <label>Min elevation: <span id="elev-val">0</span> m</label>
+      <input type="range" id="elev-min" min="0" max="1000" value="0" step="10">
+    </div>
+    <div class="filter-group">
+      <label>Min length: <span id="len-val">0</span> m</label>
+      <input type="range" id="len-min" min="0" max="3000" value="0" step="10">
+    </div>
+    <div id="count-display">
+      Showing <strong><span id="count">0</span></strong> of <strong><span id="total">0</span></strong>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5/papaparse.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
