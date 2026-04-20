@@ -1,34 +1,48 @@
 var OS_API_KEY = "vt6TzPGU43fdeK6Pjg52sbWXshKSrxB5";
 
-var map = L.map("map").setView([57.1, -3.7], 8);
+var crs = new L.Proj.CRS('EPSG:27700',
+  '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs',
+  {
+    resolutions: [896.0, 448.0, 224.0, 112.0, 56.0, 28.0, 14.0, 7.0, 3.5, 1.75, 0.875, 0.4375, 0.21875, 0.109375],
+    origin: [-238375.0, 1376256.0]
+  }
+);
+
+var map = L.map("map", {
+  crs: crs,
+  minZoom: 0,
+  maxZoom: 13,
+  center: [57.1, -3.7],
+  zoom: 4
+});
 
 var osAttribution = "Contains OS data &copy; Crown copyright and database right 2026";
 
 var osOutdoor = L.tileLayer(
-  "https://api.os.uk/maps/raster/v1/zxy/Outdoor_3857/{z}/{x}/{y}.png?key=" + OS_API_KEY,
-  { attribution: osAttribution, maxZoom: 20 }
+  "https://api.os.uk/maps/raster/v1/zxy/Outdoor_27700/{z}/{x}/{y}.png?key=" + OS_API_KEY,
+  { attribution: osAttribution, maxZoom: 13 }
+);
+
+var osLeisure = L.tileLayer(
+  "https://api.os.uk/maps/raster/v1/zxy/Leisure_27700/{z}/{x}/{y}.png?key=" + OS_API_KEY,
+  { attribution: osAttribution, maxZoom: 9 }
 ).addTo(map);
 
 var osLight = L.tileLayer(
-  "https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=" + OS_API_KEY,
-  { attribution: osAttribution, maxZoom: 20 }
+  "https://api.os.uk/maps/raster/v1/zxy/Light_27700/{z}/{x}/{y}.png?key=" + OS_API_KEY,
+  { attribution: osAttribution, maxZoom: 13 }
 );
 
 var osRoad = L.tileLayer(
-  "https://api.os.uk/maps/raster/v1/zxy/Road_3857/{z}/{x}/{y}.png?key=" + OS_API_KEY,
-  { attribution: osAttribution, maxZoom: 20 }
-);
-
-var satellite = L.tileLayer(
-  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-  { attribution: "&copy; Esri, Maxar, Earthstar Geographics", maxZoom: 19 }
+  "https://api.os.uk/maps/raster/v1/zxy/Road_27700/{z}/{x}/{y}.png?key=" + OS_API_KEY,
+  { attribution: osAttribution, maxZoom: 13 }
 );
 
 L.control.layers({
   "OS Outdoor": osOutdoor,
+  "OS Leisure": osLeisure,
   "OS Light": osLight,
   "OS Road": osRoad,
-  "Satellite": satellite,
 }).addTo(map);
 
 var allMarkers = [];
@@ -72,7 +86,7 @@ fetch("scottish_high_lochs.csv")
 
       marker.bindTooltip(formatTooltip(row));
       marker.on("click", function () {
-        map.setView([row.lat, row.lon], 14);
+        map.setView([row.lat, row.lon], 7);
       });
       marker.addTo(map);
 
