@@ -12,12 +12,16 @@
   <div id="map"></div>
   <div id="filter-panel">
     <h3>Filters</h3>
+    <div class="units-toggle">
+      <label><input type="radio" name="units" value="metric" checked> Metric</label>
+      <label><input type="radio" name="units" value="imperial"> Imperial</label>
+    </div>
     <div class="filter-group">
-      <label>Min elevation: <span id="elev-val">0</span> m</label>
+      <label>Min elevation: <span id="elev-val">0</span> <span id="elev-unit">m</span></label>
       <input type="range" id="elev-min" min="0" max="1000" value="0" step="10">
     </div>
     <div class="filter-group">
-      <label>Min length: <span id="len-val">0</span> m</label>
+      <label>Min length: <span id="len-val">0</span> <span id="len-unit">m</span></label>
       <input type="range" id="len-min" min="0" max="3000" value="0" step="10">
     </div>
     <div id="count-display">
