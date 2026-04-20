@@ -99,6 +99,9 @@ fetch("scottish_high_lochs.csv")
 
     document.getElementById("total").textContent = allMarkers.length;
     updateSliderRanges();
+    // Restore desired defaults after range update
+    document.getElementById("elev-min").value = 500;
+    document.getElementById("len-min").value = 300;
     applyFilters();
 
     document.getElementById("elev-min").addEventListener("input", applyFilters);
@@ -124,19 +127,19 @@ function updateSliderRanges() {
   var lenSlider = document.getElementById("len-min");
 
   if (isImperial()) {
-    elevSlider.min = Math.floor(elevMin * M_TO_FT);
+    elevSlider.min = 0;
     elevSlider.max = Math.ceil(elevMax * M_TO_FT);
     elevSlider.step = 50;
-    lenSlider.min = Math.floor(lenMin * M_TO_YD);
+    lenSlider.min = 0;
     lenSlider.max = Math.ceil(lenMax * M_TO_YD);
     lenSlider.step = 10;
     document.getElementById("elev-unit").textContent = "ft";
     document.getElementById("len-unit").textContent = "yd";
   } else {
-    elevSlider.min = Math.floor(elevMin);
+    elevSlider.min = 0;
     elevSlider.max = Math.ceil(elevMax);
     elevSlider.step = 10;
-    lenSlider.min = Math.floor(lenMin);
+    lenSlider.min = 0;
     lenSlider.max = Math.ceil(lenMax);
     lenSlider.step = 10;
     document.getElementById("elev-unit").textContent = "m";
