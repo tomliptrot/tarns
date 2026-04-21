@@ -56,7 +56,12 @@ fetch("high_lochs.csv")
   .then(function (response) { return response.text(); })
   .then(function (text) {
     var result = Papa.parse(text, { header: true, dynamicTyping: true });
-    var rows = result.data.filter(function (r) { return r.lat != null; });
+    var rows = result.data.filter(function (r) {
+      if (r.lat == null) return false;
+      // Exclude rivers (area < 1ha and length > 800m)
+      if (r.area_hectares < 1 && r.length_m > 800) return false;
+      return true;
+    });
 
     rows.forEach(function (row) {
       var marker = L.circleMarker([row.lat, row.lon], {
@@ -200,14 +205,7 @@ document.querySelectorAll('.tab-btn').forEach(function (btn) {
 });
 
 function rowToTableData(row) {
-  var links = '';
-  if (row.os_map) {
-    links += '<a href="' + row.os_map + '" target="_blank">OS Map</a>';
-  }
-  if (row.google_sat) {
-    if (links) links += ' | ';
-    links += '<a href="' + row.google_sat + '" target="_blank">Satellite</a>';
-  }
+  var link = '<a href="#" class="map-link" data-lat="' + row.lat + '" data-lon="' + row.lon + '">Show on map</a>';
   return [
     row.name || '',
     row.country || '',
@@ -216,11 +214,24 @@ function rowToTableData(row) {
     row.length_m != null ? row.length_m : '',
     row.lat != null ? Number(row.lat).toFixed(5) : '',
     row.lon != null ? Number(row.lon).toFixed(5) : '',
-    links
+    link
   ];
 }
 
 function initDataTable() {
+  $('#lochs-table').on('click', '.map-link', function (e) {
+    e.preventDefault();
+    var lat = parseFloat(this.getAttribute('data-lat'));
+    var lon = parseFloat(this.getAttribute('data-lon'));
+    // Switch to map tab
+    document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-content').forEach(function (c) { c.classList.remove('active'); });
+    document.querySelector('.tab-btn[data-tab="map"]').classList.add('active');
+    document.getElementById('map-tab').classList.add('active');
+    map.invalidateSize();
+    map.setView([lat, lon], 7);
+  });
+
   dataTable = $('#lochs-table').DataTable({
     data: [],
     pageLength: 200,
