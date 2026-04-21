@@ -1,32 +1,51 @@
-"""Fetch Scottish high lochs from OSM, sample elevation, export CSV."""
+"""Fetch high lochs/lakes from OSM for Scotland, Wales, and England, sample elevation, export CSV."""
 
-import numpy as np
-import geopandas as gpd
-import rasterio
-import requests
-import osm2geojson
-from scipy.spatial.distance import pdist
+import json
 from pathlib import Path
 
+import geopandas as gpd
+import numpy as np
+import osm2geojson
+import pandas as pd
+import rasterio
+import requests
+from scipy.spatial.distance import pdist
+
 VRT_PATH = Path("scotland_terrain50.vrt")
-OUTPUT_CSV = Path("scottish_high_lochs.csv")
+OUTPUT_CSV = Path("high_lochs.csv")
+OSM_CACHE_DIR = Path("osm_cache")
 
 MIN_AREA_M2 = 5_000
 MIN_ELEVATION_M = 400
 SNAP_GRID_M = 50
-MAX_ASPECT_RATIO = 5
+MAX_ASPECT_RATIO = 500
 
 EXCLUDED_WATER_TYPES = {
-    "reservoir", "basin", "wastewater", "lagoon",
-    "river", "canal", "stream", "drain", "moat", "lock", "stream_pool",
+    "reservoir",
+    "basin",
+    "wastewater",
+    "lagoon",
+    "river",
+    "canal",
+    "stream",
+    "drain",
+    "moat",
+    "lock",
+    "stream_pool",
 }
 
-OVERPASS_QUERY = """
+COUNTRIES = {
+    "GB-SCT": "Scotland",
+    "GB-WLS": "Wales",
+    "GB-ENG": "England",
+}
+
+OVERPASS_QUERY_TEMPLATE = """
 [out:json][timeout:300];
-area["ISO3166-2"="GB-SCT"]->.scotland;
+area["ISO3166-2"="{iso_code}"]->.searchArea;
 (
-  way["natural"="water"](area.scotland);
-  relation["natural"="water"](area.scotland);
+  way["natural"="water"](area.searchArea);
+  relation["natural"="water"](area.searchArea);
 );
 out geom;
 """
@@ -68,25 +87,55 @@ def aspect_ratio(geom):
 
 
 def fetch_osm_water():
-    """Query Overpass API for all water bodies in Scotland."""
-    print("Fetching water bodies from Overpass API...")
+    """Query Overpass API for all water bodies in Scotland, Wales, and England.
+
+    Caches raw OSM JSON responses in osm_cache/ to avoid repeated API calls.
+    Delete the cache directory to force a fresh fetch.
+    """
+    OSM_CACHE_DIR.mkdir(exist_ok=True)
     headers = {
         "User-Agent": "ortom-tarn-finder/0.1 (tom@ortom.ai)",
         "Accept": "application/json",
     }
-    r = requests.post(
-        "https://overpass-api.de/api/interpreter",
-        data={"data": OVERPASS_QUERY},
-        headers=headers,
-        timeout=360,
-    )
-    r.raise_for_status()
-    data = r.json()
+    parts = []
+    for iso_code, country_name in COUNTRIES.items():
+        cache_file = OSM_CACHE_DIR / f"{iso_code}.json"
 
-    geojson = osm2geojson.json2geojson(data)
-    gdf = gpd.GeoDataFrame.from_features(geojson["features"], crs="EPSG:4326")
-    print(f"  Fetched {len(gdf)} water bodies")
-    return gdf
+        if cache_file.exists():
+            print(f"Loading cached OSM data for {country_name} from {cache_file}")
+            data = json.loads(cache_file.read_text())
+        else:
+            print(f"Fetching water bodies from Overpass API for {country_name}...")
+            query = OVERPASS_QUERY_TEMPLATE.format(iso_code=iso_code)
+            r = requests.post(
+                "https://overpass-api.de/api/interpreter",
+                data={"data": query},
+                headers=headers,
+                timeout=360,
+            )
+            # if 429 try altenative https://overpass.kumi.systems/api/interpreter
+            if r.status_code == 429 or r.status_code == 504:
+                print("Rate limited, trying alternative Overpass endpoint...")
+                r = requests.post(
+                    "https://overpass.private.coffee/api/interpreter",
+                    data={"data": query},
+                    headers=headers,
+                    timeout=360,
+                )
+            r.raise_for_status()
+            data = r.json()
+            cache_file.write_text(json.dumps(data))
+            print(f"  Saved OSM data to {cache_file}")
+
+        geojson = osm2geojson.json2geojson(data)
+        gdf = gpd.GeoDataFrame.from_features(geojson["features"], crs="EPSG:4326")
+        gdf["country"] = country_name
+        print(f"  {len(gdf)} water bodies for {country_name}")
+        parts.append(gdf)
+
+    combined = gpd.GeoDataFrame(pd.concat(parts, ignore_index=True), crs="EPSG:4326")
+    print(f"  Total: {len(combined)} water bodies")
+    return combined
 
 
 def clean_and_filter(gdf):
@@ -155,22 +204,41 @@ def build_output(gdf):
     df["lon"] = wgs.x.round(5)
 
     df["os_map"] = (
-        "https://www.streetmap.co.uk/map.srf?X=" + df["easting"].astype(str)
-        + "&Y=" + df["northing"].astype(str) + "&Z=115&A=Y"
+        "https://www.streetmap.co.uk/map.srf?X="
+        + df["easting"].astype(str)
+        + "&Y="
+        + df["northing"].astype(str)
+        + "&Z=115&A=Y"
     )
     df["google_sat"] = (
         "https://www.google.com/maps/@?api=1&map_action=map&center="
-        + df["lat"].astype(str) + "," + df["lon"].astype(str)
+        + df["lat"].astype(str)
+        + ","
+        + df["lon"].astype(str)
         + "&zoom=15&basemap=satellite"
     )
 
-    out = df[[
-        "name", "water_type", "area_m2", "elevation_m", "length_m",
-        "lat", "lon", "os_map", "google_sat", "compactness", "aspect_ratio",
-    ]].rename(columns={
-        "area_m2": "area_sqm",
-        "elevation_m": "elevation",
-    })
+    out = df[
+        [
+            "name",
+            "country",
+            "water_type",
+            "area_m2",
+            "elevation_m",
+            "length_m",
+            "lat",
+            "lon",
+            "os_map",
+            "google_sat",
+            "compactness",
+            "aspect_ratio",
+        ]
+    ].rename(
+        columns={
+            "area_m2": "area_sqm",
+            "elevation_m": "elevation",
+        }
+    )
 
     out["area_sqm"] = out["area_sqm"].round().astype(int)
     out["elevation"] = out["elevation"].round(1)

@@ -12,8 +12,8 @@ var map = L.map("map", {
   crs: crs,
   minZoom: 0,
   maxZoom: 9,
-  center: [57.1, -3.7],
-  zoom: 1
+  center: [55, -2.0],
+  zoom: 0
 });
 
 map.on("zoomend", function () {
@@ -74,7 +74,7 @@ function formatTooltip(row) {
     "Length: " + row.length_m + " m";
 }
 
-fetch("scottish_high_lochs.csv")
+fetch("high_lochs.csv")
   .then(function (response) { return response.text(); })
   .then(function (text) {
     var result = Papa.parse(text, { header: true, dynamicTyping: true });
@@ -223,7 +223,7 @@ function exportCSV() {
   var url = URL.createObjectURL(blob);
   var a = document.createElement("a");
   a.href = url;
-  a.download = "scottish_high_lochs_filtered.csv";
+  a.download = "high_lochs_filtered.csv";
   a.click();
   URL.revokeObjectURL(url);
 }
