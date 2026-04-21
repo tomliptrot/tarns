@@ -255,6 +255,18 @@ function updateDataTable() {
   dataTable.draw();
 }
 
+function toggleFilters() {
+  var body = document.getElementById('filter-body');
+  var btn = document.getElementById('filter-toggle');
+  if (body.style.display === 'none') {
+    body.style.display = '';
+    btn.innerHTML = '&#9650;';
+  } else {
+    body.style.display = 'none';
+    btn.innerHTML = '&#9660;';
+  }
+}
+
 function exportCSV() {
   var visible = allMarkers.filter(function (item) {
     return map.hasLayer(item.marker);

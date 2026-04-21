@@ -82,6 +82,23 @@ html, body {
 #filter-panel h3 {
   margin: 0 0 10px;
   font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#filter-toggle {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 6px;
+  color: #666;
+}
+
+#filter-toggle:hover {
+  background: #eee;
 }
 
 .units-toggle {

@@ -19,7 +19,8 @@
   <div id="map-tab" class="tab-content active">
     <div id="map"></div>
     <div id="filter-panel">
-      <h3>Filters</h3>
+      <h3>Filters <button id="filter-toggle" onclick="toggleFilters()">&#9650;</button></h3>
+      <div id="filter-body">
       <div class="units-toggle">
         <label><input type="radio" name="units" value="metric" checked> Metric</label>
         <label><input type="radio" name="units" value="imperial"> Imperial</label>
@@ -36,6 +37,7 @@
         Showing <strong><span id="count">0</span></strong> of <strong><span id="total">0</span></strong>
       </div>
       <button id="export-btn" onclick="exportCSV()">Export CSV</button>
+      </div>
     </div>
   </div>
 
