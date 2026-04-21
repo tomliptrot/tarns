@@ -22,32 +22,10 @@ map.on("zoomend", function () {
 
 var osAttribution = "Contains OS data &copy; Crown copyright and database right 2026";
 
-var osOutdoor = L.tileLayer(
-  "https://api.os.uk/maps/raster/v1/zxy/Outdoor_27700/{z}/{x}/{y}.png?key=" + OS_API_KEY,
-  { attribution: osAttribution, maxZoom: 13 }
-);
-
-var osLeisure = L.tileLayer(
+L.tileLayer(
   "https://api.os.uk/maps/raster/v1/zxy/Leisure_27700/{z}/{x}/{y}.png?key=" + OS_API_KEY,
   { attribution: osAttribution, maxZoom: 9 }
 ).addTo(map);
-
-var osLight = L.tileLayer(
-  "https://api.os.uk/maps/raster/v1/zxy/Light_27700/{z}/{x}/{y}.png?key=" + OS_API_KEY,
-  { attribution: osAttribution, maxZoom: 13 }
-);
-
-var osRoad = L.tileLayer(
-  "https://api.os.uk/maps/raster/v1/zxy/Road_27700/{z}/{x}/{y}.png?key=" + OS_API_KEY,
-  { attribution: osAttribution, maxZoom: 13 }
-);
-
-L.control.layers({
-  "OS Outdoor": osOutdoor,
-  "OS Leisure": osLeisure,
-  "OS Light": osLight,
-  "OS Road": osRoad,
-}).addTo(map);
 
 var allMarkers = [];
 var imperial = false;
@@ -98,6 +76,7 @@ fetch("high_lochs.csv")
     });
 
     document.getElementById("total").textContent = allMarkers.length;
+    initDataTable();
     updateSliderRanges();
     // Restore desired defaults after range update
     document.getElementById("elev-min").value = 500;
@@ -196,6 +175,73 @@ function applyFilters() {
   });
 
   document.getElementById("count").textContent = shown;
+  updateDataTable();
+}
+
+// --- Tab switching ---
+var dataTable = null;
+
+document.querySelectorAll('.tab-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-content').forEach(function (c) { c.classList.remove('active'); });
+    btn.classList.add('active');
+    var tabId = btn.getAttribute('data-tab') + '-tab';
+    document.getElementById(tabId).classList.add('active');
+
+    if (btn.getAttribute('data-tab') === 'map') {
+      map.invalidateSize();
+    }
+
+    if (btn.getAttribute('data-tab') === 'data' && dataTable) {
+      dataTable.columns.adjust().draw();
+    }
+  });
+});
+
+function rowToTableData(row) {
+  var links = '';
+  if (row.os_map) {
+    links += '<a href="' + row.os_map + '" target="_blank">OS Map</a>';
+  }
+  if (row.google_sat) {
+    if (links) links += ' | ';
+    links += '<a href="' + row.google_sat + '" target="_blank">Satellite</a>';
+  }
+  return [
+    row.name || '',
+    row.country || '',
+    row.elevation != null ? row.elevation : '',
+    row.area_hectares != null ? row.area_hectares : '',
+    row.length_m != null ? row.length_m : '',
+    row.lat != null ? Number(row.lat).toFixed(5) : '',
+    row.lon != null ? Number(row.lon).toFixed(5) : '',
+    links
+  ];
+}
+
+function initDataTable() {
+  dataTable = $('#lochs-table').DataTable({
+    data: [],
+    pageLength: 200,
+    order: [[2, 'desc']],
+    columnDefs: [
+      { targets: [2, 3, 4], className: 'dt-right' },
+      { targets: 7, orderable: false }
+    ]
+  });
+}
+
+function updateDataTable() {
+  if (!dataTable) return;
+  var visibleRows = allMarkers.filter(function (item) {
+    return map.hasLayer(item.marker);
+  }).map(function (item) {
+    return rowToTableData(item.row);
+  });
+  dataTable.clear();
+  dataTable.rows.add(visibleRows);
+  dataTable.draw();
 }
 
 function exportCSV() {
