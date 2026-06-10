@@ -25,13 +25,26 @@
         <label><input type="radio" name="units" value="metric"> Metric</label>
         <label><input type="radio" name="units" value="imperial" checked> Imperial</label>
       </div>
-      <div class="filter-group">
-        <label>Min elevation: <span id="elev-val">1500</span> <span id="elev-unit">ft</span></label>
-        <input type="range" id="elev-min" min="0" max="3300" value="1500" step="50">
+      <div class="filter-set">
+        <div class="filter-group">
+          <label>Min elevation: <span id="elev-val">1500</span> <span id="elev-unit">ft</span></label>
+          <input type="range" id="elev-min" min="0" max="3300" value="1500" step="50">
+        </div>
+        <div class="filter-group">
+          <label>Min area: <span id="area-val">15</span> <span id="area-unit">acres</span></label>
+          <input type="range" id="area-min" min="0" max="25" value="15" step="0.1">
+        </div>
       </div>
-      <div class="filter-group">
-        <label>Min area: <span id="area-val">15</span> <span id="area-unit">acres</span></label>
-        <input type="range" id="area-min" min="0" max="25" value="15" step="0.1">
+      <div class="filter-or">OR</div>
+      <div class="filter-set">
+        <div class="filter-group">
+          <label>Min elevation: <span id="elev-val-2">2000</span> <span id="elev-unit-2">ft</span></label>
+          <input type="range" id="elev-min-2" min="0" max="3300" value="2000" step="50">
+        </div>
+        <div class="filter-group">
+          <label>Min area: <span id="area-val-2">10</span> <span id="area-unit-2">acres</span></label>
+          <input type="range" id="area-min-2" min="0" max="25" value="10" step="0.1">
+        </div>
       </div>
       <div id="count-display">
         Showing <strong><span id="count">0</span></strong> of <strong><span id="total">0</span></strong>
