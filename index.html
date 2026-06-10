@@ -22,20 +22,16 @@
       <h3>Filters <button id="filter-toggle" onclick="toggleFilters()">&#9650;</button></h3>
       <div id="filter-body">
       <div class="units-toggle">
-        <label><input type="radio" name="units" value="metric" checked> Metric</label>
-        <label><input type="radio" name="units" value="imperial"> Imperial</label>
+        <label><input type="radio" name="units" value="metric"> Metric</label>
+        <label><input type="radio" name="units" value="imperial" checked> Imperial</label>
       </div>
       <div class="filter-group">
-        <label>Min elevation: <span id="elev-val">500</span> <span id="elev-unit">m</span></label>
-        <input type="range" id="elev-min" min="0" max="1000" value="500" step="10">
+        <label>Min elevation: <span id="elev-val">1500</span> <span id="elev-unit">ft</span></label>
+        <input type="range" id="elev-min" min="0" max="3300" value="1500" step="50">
       </div>
       <div class="filter-group">
-        <label>Min length: <span id="len-val">300</span> <span id="len-unit">m</span></label>
-        <input type="range" id="len-min" min="0" max="3000" value="300" step="10">
-      </div>
-      <div class="filter-group">
-        <label>Min area: <span id="area-val">0</span> <span id="area-unit">ha</span></label>
-        <input type="range" id="area-min" min="0" max="100" value="0" step="0.1">
+        <label>Min area: <span id="area-val">15</span> <span id="area-unit">acres</span></label>
+        <input type="range" id="area-min" min="0" max="25" value="15" step="0.1">
       </div>
       <div id="count-display">
         Showing <strong><span id="count">0</span></strong> of <strong><span id="total">0</span></strong>

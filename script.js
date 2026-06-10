@@ -83,14 +83,12 @@ fetch("high_lochs.csv")
     document.getElementById("total").textContent = allMarkers.length;
     initDataTable();
     updateSliderRanges();
-    // Restore desired defaults after range update
-    document.getElementById("elev-min").value = 500;
-    document.getElementById("len-min").value = 300;
-    document.getElementById("area-min").value = 0;
+    // Restore desired defaults after range update (imperial)
+    document.getElementById("elev-min").value = 1500;
+    document.getElementById("area-min").value = 15;
     applyFilters();
 
     document.getElementById("elev-min").addEventListener("input", applyFilters);
-    document.getElementById("len-min").addEventListener("input", applyFilters);
     document.getElementById("area-min").addEventListener("input", applyFilters);
 
     document.querySelectorAll('input[name="units"]').forEach(function (radio) {
@@ -100,44 +98,32 @@ fetch("high_lochs.csv")
 
 function updateSliderRanges() {
   var elevMin = Infinity, elevMax = -Infinity;
-  var lenMin = Infinity, lenMax = -Infinity;
 
   allMarkers.forEach(function (item) {
     if (item.elevation < elevMin) elevMin = item.elevation;
     if (item.elevation > elevMax) elevMax = item.elevation;
-    if (item.length_m < lenMin) lenMin = item.length_m;
-    if (item.length_m > lenMax) lenMax = item.length_m;
   });
 
   var elevSlider = document.getElementById("elev-min");
-  var lenSlider = document.getElementById("len-min");
   var areaSlider = document.getElementById("area-min");
 
   if (isImperial()) {
     elevSlider.min = 0;
     elevSlider.max = Math.ceil(elevMax * M_TO_FT);
     elevSlider.step = 50;
-    lenSlider.min = 0;
-    lenSlider.max = Math.ceil(lenMax * M_TO_YD);
-    lenSlider.step = 10;
     areaSlider.min = 0;
     areaSlider.max = +(10 * HA_TO_ACRES).toFixed(1);
     areaSlider.step = 0.1;
     document.getElementById("elev-unit").textContent = "ft";
-    document.getElementById("len-unit").textContent = "yd";
     document.getElementById("area-unit").textContent = "acres";
   } else {
     elevSlider.min = 0;
     elevSlider.max = Math.ceil(elevMax);
     elevSlider.step = 10;
-    lenSlider.min = 0;
-    lenSlider.max = Math.ceil(lenMax);
-    lenSlider.step = 10;
     areaSlider.min = 0;
     areaSlider.max = 10;
     areaSlider.step = 0.1;
     document.getElementById("elev-unit").textContent = "m";
-    document.getElementById("len-unit").textContent = "m";
     document.getElementById("area-unit").textContent = "ha";
   }
 }
@@ -145,23 +131,19 @@ function updateSliderRanges() {
 function onUnitsChange() {
   // Convert current slider positions to the new unit
   var elevSlider = document.getElementById("elev-min");
-  var lenSlider = document.getElementById("len-min");
   var areaSlider = document.getElementById("area-min");
   var oldElevVal = +elevSlider.value;
-  var oldLenVal = +lenSlider.value;
   var oldAreaVal = +areaSlider.value;
 
   var imp = isImperial();
 
   // Convert slider value: if switching to imperial, old value is metric; if to metric, old is imperial
   var newElevVal = imp ? Math.round(oldElevVal * M_TO_FT) : Math.round(oldElevVal / M_TO_FT);
-  var newLenVal = imp ? Math.round(oldLenVal * M_TO_YD) : Math.round(oldLenVal / M_TO_YD);
   var newAreaVal = imp ? +(oldAreaVal * HA_TO_ACRES).toFixed(1) : +(oldAreaVal / HA_TO_ACRES).toFixed(1);
 
   updateSliderRanges();
 
   elevSlider.value = newElevVal;
-  lenSlider.value = newLenVal;
   areaSlider.value = newAreaVal;
 
   // Update tooltips
@@ -174,22 +156,19 @@ function onUnitsChange() {
 
 function applyFilters() {
   var eSliderVal = +document.getElementById("elev-min").value;
-  var lSliderVal = +document.getElementById("len-min").value;
   var aSliderVal = +document.getElementById("area-min").value;
 
   document.getElementById("elev-val").textContent = eSliderVal;
-  document.getElementById("len-val").textContent = lSliderVal;
   document.getElementById("area-val").textContent = aSliderVal;
 
   // Convert slider values back to metric for comparison against data
   var eMin = isImperial() ? eSliderVal / M_TO_FT : eSliderVal;
-  var lMin = isImperial() ? lSliderVal / M_TO_YD : lSliderVal;
   var aMin = isImperial() ? aSliderVal / HA_TO_ACRES : aSliderVal;
 
   var shown = 0;
   allMarkers.forEach(function (item) {
     var area = item.area_hectares == null ? 0 : item.area_hectares;
-    var keep = item.elevation >= eMin && item.length_m >= lMin && area >= aMin;
+    var keep = item.elevation >= eMin && area >= aMin;
     if (keep) {
       if (!map.hasLayer(item.marker)) map.addLayer(item.marker);
       shown++;
