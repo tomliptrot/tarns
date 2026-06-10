@@ -193,21 +193,24 @@ function applyFilters() {
   updateDataTable();
 }
 
-// Deep link: ?id={id} zooms to and opens the matching lake
-function focusFromUrl() {
-  var id = new URLSearchParams(window.location.search).get("id");
-  if (id == null || id === "") return;
-
+// Zoom to and open the lake with the given id, showing it even if
+// the current filters would hide it.
+function focusItemById(id) {
   var item = allMarkers.filter(function (it) {
     return String(it.id) === String(id);
   })[0];
   if (!item) return;
 
-  // Show it even if the current filters would hide it
   if (!map.hasLayer(item.marker)) map.addLayer(item.marker);
-
   map.setView([item.row.lat, item.row.lon], 9);
   item.marker.openTooltip();
+}
+
+// Deep link: ?id={id} zooms to and opens the matching lake
+function focusFromUrl() {
+  var id = new URLSearchParams(window.location.search).get("id");
+  if (id == null || id === "") return;
+  focusItemById(id);
 }
 
 // --- Tab switching ---
@@ -236,7 +239,7 @@ function rowToTableData(item) {
   var imp = isImperial();
   var elev = row.elevation != null ? (imp ? Math.round(row.elevation * M_TO_FT) : row.elevation) : '';
   var area = row.area_hectares != null ? (imp ? +(row.area_hectares * HA_TO_ACRES).toFixed(2) : row.area_hectares) : '';
-  var link = '<a href="#" class="map-link" data-lat="' + row.lat + '" data-lon="' + row.lon + '">Show on map</a>';
+  var link = '<a href="?id=' + row.id + '" class="map-link" data-id="' + row.id + '">Show on map</a>';
   return [
     row.name || '',
     row.country || '',
@@ -254,15 +257,15 @@ function rowToTableData(item) {
 function initDataTable() {
   $('#lochs-table').on('click', '.map-link', function (e) {
     e.preventDefault();
-    var lat = parseFloat(this.getAttribute('data-lat'));
-    var lon = parseFloat(this.getAttribute('data-lon'));
+    var id = this.getAttribute('data-id');
     // Switch to map tab
     document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
     document.querySelectorAll('.tab-content').forEach(function (c) { c.classList.remove('active'); });
     document.querySelector('.tab-btn[data-tab="map"]').classList.add('active');
     document.getElementById('map-tab').classList.add('active');
     map.invalidateSize();
-    map.setView([lat, lon], 7);
+    focusItemById(id);
+    history.replaceState(null, '', '?id=' + id);
   });
 
   dataTable = $('#lochs-table').DataTable({
