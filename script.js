@@ -77,7 +77,7 @@ fetch("high_lochs.csv")
       });
       marker.addTo(map);
 
-      allMarkers.push({ marker: marker, row: row, elevation: row.elevation, length_m: row.length_m, area_hectares: row.area_hectares });
+      allMarkers.push({ marker: marker, row: row, id: row.id, elevation: row.elevation, length_m: row.length_m, area_hectares: row.area_hectares });
     });
 
     document.getElementById("total").textContent = allMarkers.length;
@@ -89,6 +89,7 @@ fetch("high_lochs.csv")
     document.getElementById("elev-min-2").value = 2000;
     document.getElementById("area-min-2").value = 10;
     applyFilters();
+    focusFromUrl();
 
     ["elev-min", "area-min", "elev-min-2", "area-min-2"].forEach(function (id) {
       document.getElementById(id).addEventListener("input", applyFilters);
@@ -175,8 +176,11 @@ function applyFilters() {
   var shown = 0;
   allMarkers.forEach(function (item) {
     var area = item.area_hectares == null ? 0 : item.area_hectares;
-    var keep = (item.elevation >= eMin1 && area >= aMin1) ||
-               (item.elevation >= eMin2 && area >= aMin2);
+    var c1 = item.elevation >= eMin1 && area >= aMin1;
+    var c2 = item.elevation >= eMin2 && area >= aMin2;
+    item.condition_1 = c1;
+    item.condition_2 = c2;
+    var keep = c1 || c2;
     if (keep) {
       if (!map.hasLayer(item.marker)) map.addLayer(item.marker);
       shown++;
@@ -187,6 +191,23 @@ function applyFilters() {
 
   document.getElementById("count").textContent = shown;
   updateDataTable();
+}
+
+// Deep link: ?id={id} zooms to and opens the matching lake
+function focusFromUrl() {
+  var id = new URLSearchParams(window.location.search).get("id");
+  if (id == null || id === "") return;
+
+  var item = allMarkers.filter(function (it) {
+    return String(it.id) === String(id);
+  })[0];
+  if (!item) return;
+
+  // Show it even if the current filters would hide it
+  if (!map.hasLayer(item.marker)) map.addLayer(item.marker);
+
+  map.setView([item.row.lat, item.row.lon], 9);
+  item.marker.openTooltip();
 }
 
 // --- Tab switching ---
@@ -210,16 +231,22 @@ document.querySelectorAll('.tab-btn').forEach(function (btn) {
   });
 });
 
-function rowToTableData(row) {
+function rowToTableData(item) {
+  var row = item.row;
+  var imp = isImperial();
+  var elev = row.elevation != null ? (imp ? Math.round(row.elevation * M_TO_FT) : row.elevation) : '';
+  var area = row.area_hectares != null ? (imp ? +(row.area_hectares * HA_TO_ACRES).toFixed(2) : row.area_hectares) : '';
   var link = '<a href="#" class="map-link" data-lat="' + row.lat + '" data-lon="' + row.lon + '">Show on map</a>';
   return [
     row.name || '',
     row.country || '',
-    row.elevation != null ? row.elevation : '',
-    row.area_hectares != null ? row.area_hectares : '',
+    elev,
+    area,
     row.length_m != null ? row.length_m : '',
     row.lat != null ? Number(row.lat).toFixed(5) : '',
     row.lon != null ? Number(row.lon).toFixed(5) : '',
+    item.condition_1 ? 'true' : 'false',
+    item.condition_2 ? 'true' : 'false',
     link
   ];
 }
@@ -244,17 +271,24 @@ function initDataTable() {
     order: [[2, 'desc']],
     columnDefs: [
       { targets: [2, 3, 4], className: 'dt-right' },
-      { targets: 7, orderable: false }
+      { targets: 9, orderable: false }
     ]
   });
 }
 
+function updateTableHeaders() {
+  var imp = isImperial();
+  $('#th-elev').text(imp ? 'Elevation (ft)' : 'Elevation (m)');
+  $('#th-area').text(imp ? 'Area (acres)' : 'Area (ha)');
+}
+
 function updateDataTable() {
   if (!dataTable) return;
+  updateTableHeaders();
   var visibleRows = allMarkers.filter(function (item) {
     return map.hasLayer(item.marker);
   }).map(function (item) {
-    return rowToTableData(item.row);
+    return rowToTableData(item);
   });
   dataTable.clear();
   dataTable.rows.add(visibleRows);
@@ -280,17 +314,27 @@ function exportCSV() {
 
   if (visible.length === 0) return;
 
+  var imp = isImperial();
   var columns = Object.keys(visible[0].row);
-  var lines = [columns.join(",")];
+  var header = columns.map(function (col) {
+    if (imp && col === "elevation") return "elevation_ft";
+    if (imp && col === "area_hectares") return "area_acres";
+    return col;
+  });
+  var lines = [header.concat(["condition_1", "condition_2"]).join(",")];
 
   visible.forEach(function (item) {
     var values = columns.map(function (col) {
       var val = item.row[col];
+      if (imp && col === "elevation" && val != null) val = Math.round(val * M_TO_FT);
+      if (imp && col === "area_hectares" && val != null) val = +(val * HA_TO_ACRES).toFixed(2);
       if (typeof val === "string" && (val.indexOf(",") !== -1 || val.indexOf('"') !== -1)) {
         return '"' + val.replace(/"/g, '""') + '"';
       }
       return val;
     });
+    values.push(item.condition_1 ? "true" : "false");
+    values.push(item.condition_2 ? "true" : "false");
     lines.push(values.join(","));
   });
 
