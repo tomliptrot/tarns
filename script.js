@@ -74,6 +74,7 @@ fetch("high_lochs.csv")
       marker.bindTooltip(formatTooltip(row));
       marker.on("click", function () {
         map.setView([row.lat, row.lon], 7);
+        history.replaceState(null, '', '?id=' + row.id);
       });
       marker.addTo(map);
 
@@ -202,7 +203,7 @@ function focusItemById(id) {
   if (!item) return;
 
   if (!map.hasLayer(item.marker)) map.addLayer(item.marker);
-  map.setView([item.row.lat, item.row.lon], 9);
+  map.setView([item.row.lat, item.row.lon], 7);
   item.marker.openTooltip();
 }
 
