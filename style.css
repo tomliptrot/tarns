@@ -138,6 +138,19 @@ html, body {
   width: 100%;
 }
 
+.layer-toggle {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.layer-toggle label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
 #count-display {
   margin-top: 12px;
   font-size: 13px;

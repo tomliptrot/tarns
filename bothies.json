@@ -1,0 +1,772 @@
+[
+  {
+    "name": "A'Chuil",
+    "lat": 56.97716,
+    "lon": -5.38467,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/achuil/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2020/04/A_Chuil_interior-2-1-360x219.jpg"
+  },
+  {
+    "name": "Abyssinia",
+    "lat": 56.26547,
+    "lon": -4.81804,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/abyssinia/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/abyssina-p-rowell-360x220.jpg"
+  },
+  {
+    "name": "Achadh-nan-darach",
+    "lat": 57.1107,
+    "lon": -4.78791,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/achadh-nan-darach/",
+    "thumbnail": null
+  },
+  {
+    "name": "Achnanclach",
+    "lat": 58.42685,
+    "lon": -4.34645,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/achnanclach/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2022/07/Untitled-360x220.jpg"
+  },
+  {
+    "name": "Allt Scheicheachan",
+    "lat": 56.83992,
+    "lon": -3.91144,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/allt-scheicheachan/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/DSCF7383a-360x220.jpg"
+  },
+  {
+    "name": "Arenig Fawr",
+    "lat": 52.92623,
+    "lon": -3.71165,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/arenig-fawr/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/James-Petre-360x219.jpg"
+  },
+  {
+    "name": "Bearnais",
+    "lat": 57.43432,
+    "lon": -5.29877,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/bearnais/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Scotland-Sept-2010-116-bellis-360x220.jpg"
+  },
+  {
+    "name": "Bellingburn Barn",
+    "lat": 55.21523,
+    "lon": -2.4791,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/bellingburn-barn/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2025/06/ruin-website-2-360x220.jpg"
+  },
+  {
+    "name": "Ben Alder Cottage",
+    "lat": 56.77905,
+    "lon": -4.45903,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/ben-alder-cottage/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/IMG_2922-mcturk-360x220.jpg"
+  },
+  {
+    "name": "Blackburn of Corrieyairack",
+    "lat": 57.08824,
+    "lon": -4.67195,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/blackburn-of-corrieyairack/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Blackburn-of-Corrieyairick-February-2013-5-mcquiston-360x220.jpg"
+  },
+  {
+    "name": "Brattleburn",
+    "lat": 55.3465,
+    "lon": -3.55351,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/brattleburn/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/P1050392-p-alymer-360x220.jpg"
+  },
+  {
+    "name": "Burleywhag",
+    "lat": 55.28408,
+    "lon": -3.62131,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/burleywhag/",
+    "thumbnail": null
+  },
+  {
+    "name": "Cadderlie",
+    "lat": 56.48452,
+    "lon": -5.17494,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/cadderlie/",
+    "thumbnail": null
+  },
+  {
+    "name": "Cae Amos",
+    "lat": 52.98595,
+    "lon": -4.21146,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/cae-amos/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/a-mayhew-360x219.jpg"
+  },
+  {
+    "name": "Callater Stable",
+    "lat": 56.94471,
+    "lon": -3.3526,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/callater-stable/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/020-360x220.jpg"
+  },
+  {
+    "name": "Camasunary",
+    "lat": 57.18806,
+    "lon": -6.11061,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/camasunary/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2020/04/2015-07-25_2741-360x220.jpg"
+  },
+  {
+    "name": "Camban",
+    "lat": 57.21482,
+    "lon": -5.22538,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/camban/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/011-j-innes-1-360x220.jpg"
+  },
+  {
+    "name": "Carron",
+    "lat": 56.14481,
+    "lon": -5.31084,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/carron/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/Gordon-Mackie-006-360x219.jpg"
+  },
+  {
+    "name": "Charr",
+    "lat": 56.93775,
+    "lon": -2.63284,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/charr/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/m-hems-360x219.jpg"
+  },
+  {
+    "name": "Clennoch",
+    "lat": 55.27572,
+    "lon": -4.20035,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/clennoch/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2020/06/19th.July1997_1-1-360x213.jpg"
+  },
+  {
+    "name": "Cnoc Mor",
+    "lat": 55.33572,
+    "lon": -5.4271,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/cnoc-mor/",
+    "thumbnail": null
+  },
+  {
+    "name": "Coire Fionnaraich",
+    "lat": 57.47568,
+    "lon": -5.42101,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/coire-fionnaraich/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/DSCF3780-jsm-360x220.jpg"
+  },
+  {
+    "name": "Coiremor (Choire Mhoir)",
+    "lat": 57.85648,
+    "lon": -4.85804,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/coiremor-choire-mhoir/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/Coiremor-360x219.jpg"
+  },
+  {
+    "name": "Corrour",
+    "lat": 57.04213,
+    "lon": -3.68115,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/corrour/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/corrour-wp-2-neil-findlay-360x220.jpg"
+  },
+  {
+    "name": "Craig",
+    "lat": 57.60988,
+    "lon": -5.7273,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/craig/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/03/craig-wp-360x220.jpg"
+  },
+  {
+    "name": "Croft House (Lochstrathy)",
+    "lat": 58.41232,
+    "lon": -4.06692,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/croft-house-lochstrathy/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/11/Crofthouse-2001_2-360x270.jpg"
+  },
+  {
+    "name": "Cruib",
+    "lat": 55.97714,
+    "lon": -5.90182,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/cruib/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/07/cruib-360x219.jpg"
+  },
+  {
+    "name": "Culra",
+    "lat": 56.85358,
+    "lon": -4.42393,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/culra/",
+    "thumbnail": null
+  },
+  {
+    "name": "Dibidil",
+    "lat": 56.95223,
+    "lon": -6.28906,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/dibidil/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2021/11/Dibidil-5-360x220.jpg"
+  },
+  {
+    "name": "Doune Byre",
+    "lat": 56.29293,
+    "lon": -4.69651,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/doune-byre/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/g-mackie3-360x219.jpg"
+  },
+  {
+    "name": "Druimnashallag",
+    "lat": 56.29636,
+    "lon": -5.39175,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/druimnashallag/",
+    "thumbnail": null
+  },
+  {
+    "name": "Dryfehead",
+    "lat": 55.28679,
+    "lon": -3.30824,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/dryfehead/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/DSCF4435-jsm-360x220.jpg"
+  },
+  {
+    "name": "Dubs Hut",
+    "lat": 54.50998,
+    "lon": -3.2229,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/dubs-hut/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Picture-062-b-neale-robertson-360x220.jpg"
+  },
+  {
+    "name": "Dulyn",
+    "lat": 53.17886,
+    "lon": -3.93874,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/dulyn/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2022/08/Dulyn-2-360x220.jpg"
+  },
+  {
+    "name": "Easan Dorcha (The Teahouse)",
+    "lat": 57.5196,
+    "lon": -5.32111,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/easan-dorcha-the-teahouse/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/DSCF2960-jsm-360x220.jpg"
+  },
+  {
+    "name": "Essan",
+    "lat": 56.87501,
+    "lon": -5.58351,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/essan/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2025/01/P1090791-360x219.jpg"
+  },
+  {
+    "name": "Faindouran",
+    "lat": 57.13714,
+    "lon": -3.51891,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/faindouran/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/img_8932-360x220.jpg"
+  },
+  {
+    "name": "Flittingford",
+    "lat": 55.19107,
+    "lon": -2.3888,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/flittingford/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/RUIN-360x228.jpg"
+  },
+  {
+    "name": "Fords of Avon Refuge",
+    "lat": 57.10976,
+    "lon": -3.58332,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/fords-of-avon-refuge/",
+    "thumbnail": null
+  },
+  {
+    "name": "Gameshope",
+    "lat": 55.45251,
+    "lon": -3.36924,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/gameshope/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-04-at-12.02.27-360x219.jpg"
+  },
+  {
+    "name": "Garbh Choire Refuge",
+    "lat": 57.06693,
+    "lon": -3.71786,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/garbh-choire-refuge/",
+    "thumbnail": null
+  },
+  {
+    "name": "Gelder Shiel Stable",
+    "lat": 56.99528,
+    "lon": -3.22359,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/gelder-shiel-stable/",
+    "thumbnail": null
+  },
+  {
+    "name": "Glas Allt Shiel",
+    "lat": 56.92748,
+    "lon": -3.19053,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/glas-allt-shiel/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2019/04/dsc00758-360x220.jpg"
+  },
+  {
+    "name": "Gleann Dubh-lighe",
+    "lat": 56.88343,
+    "lon": -5.37493,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/gleann-dubh-lighe/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/P1000384-pk-360x220.jpg"
+  },
+  {
+    "name": "Glenbuck",
+    "lat": 57.05695,
+    "lon": -4.74577,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/glenbuck/",
+    "thumbnail": null
+  },
+  {
+    "name": "Glencoul",
+    "lat": 58.22822,
+    "lon": -4.94671,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/glencoul/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2023/07/Glencoul-lex-van-de-steenoven-360x220.jpg"
+  },
+  {
+    "name": "Glendhu",
+    "lat": 58.25925,
+    "lon": -4.92828,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/glendhu/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/P7110487-kris-360x220.jpg"
+  },
+  {
+    "name": "Glengarrisdale",
+    "lat": 56.10713,
+    "lon": -5.79021,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/glengarrisdale/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/ella-towers-360x219.jpg"
+  },
+  {
+    "name": "Glenpean",
+    "lat": 56.95841,
+    "lon": -5.39601,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/glenpean/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/g-mackie4-360x219.jpg"
+  },
+  {
+    "name": "Gorton",
+    "lat": 56.59678,
+    "lon": -4.64868,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/gorton/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/c-mcmurdo2-360x219.jpg"
+  },
+  {
+    "name": "Great Lingy Hut",
+    "lat": 54.69275,
+    "lon": -3.06918,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/great-lingy-hut/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2023/11/Lingy-PETE-JO-848X518-360x220.png"
+  },
+  {
+    "name": "Green",
+    "lat": 55.10122,
+    "lon": -2.409,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/green/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/10/2017-10-15_4189-360x219.jpg"
+  },
+  {
+    "name": "Greensykes",
+    "lat": 55.28986,
+    "lon": -3.08461,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/greensykes/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Greensykes-gable-360x219.jpg"
+  },
+  {
+    "name": "Greg's Hut (Cross Fell)",
+    "lat": 54.71281,
+    "lon": -2.48145,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/gregs-hut-cross-fell/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2022/12/WP-1-848x518-1-360x220.jpg"
+  },
+  {
+    "name": "Grwyne Fawr",
+    "lat": 51.97434,
+    "lon": -3.12858,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/grwyne-fawr/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Bothy_with_Tree_8158_Small-roger-roberts-360x220.jpg"
+  },
+  {
+    "name": "Guirdil",
+    "lat": 57.02557,
+    "lon": -6.41777,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/guirdil/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Bothy-4-b-stainsby-360x220.jpg"
+  },
+  {
+    "name": "Haughtongreen",
+    "lat": 55.03546,
+    "lon": -2.33322,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/haughtongreen/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/HG-053-360x220.jpg"
+  },
+  {
+    "name": "Hutchison Memorial Hut (Etchachan)",
+    "lat": 57.07849,
+    "lon": -3.61362,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/hutchison-memorial-hut-etchachan/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/8016031823_9b3054702d_o-k-campbell-360x220.jpg"
+  },
+  {
+    "name": "Invermallie",
+    "lat": 56.9527,
+    "lon": -5.06743,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/invermallie/",
+    "thumbnail": null
+  },
+  {
+    "name": "Kearvaig",
+    "lat": 58.60858,
+    "lon": -4.94129,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/kearvaig/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/2013-03-08_0557-jsm-360x220.jpg"
+  },
+  {
+    "name": "Kershopehead",
+    "lat": 55.16883,
+    "lon": -2.71731,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/kershopehead/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Kershope-head-jsm-360x220.jpg"
+  },
+  {
+    "name": "Kettleton Byre",
+    "lat": 55.3006,
+    "lon": -3.71597,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/kettleton-byre/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/a.-Kettleton-Byre-NS-360x220.jpg"
+  },
+  {
+    "name": "Kinbreack",
+    "lat": 57.01233,
+    "lon": -5.2931,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/kinbreack/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/kin-360x219.jpg"
+  },
+  {
+    "name": "Knockdamph",
+    "lat": 57.91485,
+    "lon": -4.89515,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/knockdamph/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/12/Knockdamph-John-360x220.jpg"
+  },
+  {
+    "name": "Lairig Leacach",
+    "lat": 56.82257,
+    "lon": -4.81628,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/lairig-leacach/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/12/10-Lairig-Leacach-Bothy-1-Pete-Richie-360x220.jpg"
+  },
+  {
+    "name": "Leacraithnaich",
+    "lat": 56.56177,
+    "lon": -5.6765,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/leacraithnaich/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/g-mackie-leac-360x219.jpg"
+  },
+  {
+    "name": "Leysburnfoot (Will's Bothy)",
+    "lat": 55.2713,
+    "lon": -2.73119,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/leysburnfoot-wills-bothy/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2018/12/1a-360x220.jpg"
+  },
+  {
+    "name": "Lluest Cwmbach",
+    "lat": 52.32138,
+    "lon": -3.61426,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/lluest-cwmbach/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2020/04/LCB-Dig-432-360x220.jpg"
+  },
+  {
+    "name": "Loch Chiarain",
+    "lat": 56.73055,
+    "lon": -4.79889,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/loch-chiarain/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Chiarain-fire-360x219.jpg"
+  },
+  {
+    "name": "Lookout (Rubha Hunish)",
+    "lat": 57.70137,
+    "lon": -6.34491,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/lookout-rubha-hunish/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/P1000646-360x220.jpg"
+  },
+  {
+    "name": "Luib Chonnal",
+    "lat": 57.00595,
+    "lon": -4.64656,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/luib-chonnal/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/07/DSCF2604-360x219.jpg"
+  },
+  {
+    "name": "Maol Bhuidhe",
+    "lat": 57.37237,
+    "lon": -5.24073,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/maol-bhuidhe/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2025/01/IMG_6121-360x219.jpg"
+  },
+  {
+    "name": "Mark Cottage",
+    "lat": 56.11648,
+    "lon": -4.84951,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/mark-cottage/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/07/IMG_0509-360x219.jpg"
+  },
+  {
+    "name": "Meanach",
+    "lat": 56.77557,
+    "lon": -4.83951,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/meanach/",
+    "thumbnail": null
+  },
+  {
+    "name": "Moel Prysgau",
+    "lat": 52.2357,
+    "lon": -3.74926,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/moel-prysgau/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/10389254_653014314768054_4696849337454467932_n-bellis-360x220.jpg"
+  },
+  {
+    "name": "Mosedale Cottage",
+    "lat": 54.47832,
+    "lon": -2.78133,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/mosedale-cottage/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Mosedale2_Dale-Reynolods-360x220.jpg"
+  },
+  {
+    "name": "Nant Rhys",
+    "lat": 52.39914,
+    "lon": -3.71118,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/nant-rhys/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/14718596_1029864817083000_3581491070581589554_n-bellis-360x220.jpg"
+  },
+  {
+    "name": "Nant Syddion",
+    "lat": 52.39584,
+    "lon": -3.80411,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/nant-syddion/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/01/DSCN0661-1_edited-1-360x219.jpg"
+  },
+  {
+    "name": "Oban",
+    "lat": 56.95231,
+    "lon": -5.51526,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/oban/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/g-mackie6-360x219.jpg"
+  },
+  {
+    "name": "Ollisdal",
+    "lat": 57.35959,
+    "lon": -6.63666,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/ollisdal/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2021/10/244812562_2072146626271540_8477133141219110516_n-360x219.jpg"
+  },
+  {
+    "name": "Over Phawhope",
+    "lat": 55.3606,
+    "lon": -3.29239,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/over-phawhope/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2018/01/DSCF1250-360x220.jpg"
+  },
+  {
+    "name": "Penrhos Isaf",
+    "lat": 52.79693,
+    "lon": -3.87467,
+    "url": "https://www.mountainbothies.org.uk/bothies/wales/penrhos-isaf/",
+    "thumbnail": null
+  },
+  {
+    "name": "Resourie",
+    "lat": 56.78091,
+    "lon": -5.50216,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/resourie/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2023/07/Resourie-workparty-360x220.jpg"
+  },
+  {
+    "name": "Roughside",
+    "lat": 55.14325,
+    "lon": -2.40106,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/roughside/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Roughside-bothy-inside-upper-room-chris-hutchison-360x220.jpg"
+  },
+  {
+    "name": "Rowchoish",
+    "lat": 56.20197,
+    "lon": -4.68407,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/rowchoish/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/g-mackie-360x219.jpg"
+  },
+  {
+    "name": "Ruigh Aiteachain",
+    "lat": 57.01196,
+    "lon": -3.90012,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/ruigh-aiteachain/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2018/06/P1020918-1-360x220.jpg"
+  },
+  {
+    "name": "Ryvoan",
+    "lat": 57.18379,
+    "lon": -3.64647,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/ryvoan/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/06/k-campbell-360x219.jpg"
+  },
+  {
+    "name": "Salachy",
+    "lat": 58.10377,
+    "lon": -4.54928,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/salachy/",
+    "thumbnail": null
+  },
+  {
+    "name": "Schoolhouse (Duag Bridge)",
+    "lat": 57.93577,
+    "lon": -4.80521,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/schoolhouse-duag-bridge/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/B0028649-360x219.jpg"
+  },
+  {
+    "name": "Shenavall",
+    "lat": 57.77676,
+    "lon": -5.25416,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/shenavall/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/08/sheneval1-360x219.jpg"
+  },
+  {
+    "name": "Shielin of Mark",
+    "lat": 56.93025,
+    "lon": -3.09124,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/shielin-of-mark/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/07/DSC01004-360x219.jpg"
+  },
+  {
+    "name": "Sourlies",
+    "lat": 56.99738,
+    "lon": -5.51061,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/sourlies/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/SourliesC-rolf-godhes-360x220.jpg"
+  },
+  {
+    "name": "Spithope",
+    "lat": 55.34457,
+    "lon": -2.36644,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/spithope/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Roofwork-SPApr10-63-p-king-360x220.jpg"
+  },
+  {
+    "name": "Staoineag",
+    "lat": 56.77065,
+    "lon": -4.79023,
+    "url": "https://www.mountainbothies.org.uk/bothies/central-highlands/staoineag/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Staoineag-Bothy-5-alan-bellis-360x220.jpg"
+  },
+  {
+    "name": "Strabeg",
+    "lat": 58.42481,
+    "lon": -4.7563,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/strabeg/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/strabeg-fire-360x220.jpg"
+  },
+  {
+    "name": "Strathan",
+    "lat": 58.50332,
+    "lon": -5.00972,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/strathan/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/12/Strathan-050-360x220.jpg"
+  },
+  {
+    "name": "Strathchailleach",
+    "lat": 58.54475,
+    "lon": -5.01087,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/strathchailleach/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Strathchailleach_-May-29-31-2008-036-ann-young-360x220.jpg"
+  },
+  {
+    "name": "Suardalan",
+    "lat": 57.19717,
+    "lon": -5.50605,
+    "url": "https://www.mountainbothies.org.uk/bothies/western-highlands-islands/suardalan/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Surdalan-360x219.jpg"
+  },
+  {
+    "name": "Suileag",
+    "lat": 58.14013,
+    "lon": -5.1449,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-highlands/suileag/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/17145994185_a29920fde8_o-alistair-humphries-360x220.jpg"
+  },
+  {
+    "name": "Taigh Seumas a’ Ghlinne (Glenduror)",
+    "lat": 56.63539,
+    "lon": -5.22714,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/taigh-seumas-a-ghlinne-glenduror/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/L1030601-g-mackie-360x220.jpg"
+  },
+  {
+    "name": "Taigh Thormoid Dhuibh (Raasay)",
+    "lat": 57.50043,
+    "lon": -5.98837,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/taigh-thormoid-dhuibh-raasay/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/rassay-360x220.jpg"
+  },
+  {
+    "name": "Tarf Hotel (Feith Uaine)",
+    "lat": 56.88903,
+    "lon": -3.76324,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/tarf-hotel-feith-uaine/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Tarf-Arril-1962-ross-farrel-360x243.jpg"
+  },
+  {
+    "name": "The Red House (Ruighe Ealasaid)",
+    "lat": 56.96263,
+    "lon": -3.64173,
+    "url": "https://www.mountainbothies.org.uk/bothies/eastern-highlands/the-red-house-ruighe-ealasaid/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2022/12/317354081_5571721516238219_7290764945603784114_n-360x219.jpg"
+  },
+  {
+    "name": "Tomsleibhe",
+    "lat": 56.46658,
+    "lon": -5.86951,
+    "url": "https://www.mountainbothies.org.uk/bothies/southwest-highlands-islands/tomsleibhe/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2017/07/tom2edit-360x219.jpg"
+  },
+  {
+    "name": "Tunskeen",
+    "lat": 55.18409,
+    "lon": -4.47599,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/tunskeen/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/Tunskeen001-360x220.jpg"
+  },
+  {
+    "name": "Uags",
+    "lat": 57.34866,
+    "lon": -5.78775,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/uags/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/uags-2-360x219.jpg"
+  },
+  {
+    "name": "Uisinis",
+    "lat": 57.28064,
+    "lon": -7.23103,
+    "url": "https://www.mountainbothies.org.uk/bothies/north-west-highlands-islands/uisinis/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2020/05/DSC_2135-Stitch-p-cairney-360x161.jpg"
+  },
+  {
+    "name": "Wainhope",
+    "lat": 55.22563,
+    "lon": -2.51883,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/wainhope/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2020/12/Wainhope-edit-360x220.jpg"
+  },
+  {
+    "name": "Warnscale Head",
+    "lat": 54.50813,
+    "lon": -3.2284,
+    "url": "https://www.mountainbothies.org.uk/bothies/northern-england-borders/warnscale-head/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/P1010198x-360x220.jpg"
+  },
+  {
+    "name": "White Laggan",
+    "lat": 55.0681,
+    "lon": -4.40328,
+    "url": "https://www.mountainbothies.org.uk/bothies/southern-scotland/white-laggan/",
+    "thumbnail": "https://www.mountainbothies.org.uk/wp-content/uploads/2016/12/WhiteLaggan-008-360x220.jpg"
+  }
+]

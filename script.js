@@ -101,6 +101,42 @@ fetch("high_lochs.csv")
     });
   });
 
+// --- Mountain bothies overlay (Mountain Bothies Association) ---
+var bothiesLayer = L.layerGroup();
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+fetch("bothies.json")
+  .then(function (response) { return response.json(); })
+  .then(function (bothies) {
+    bothies.forEach(function (b) {
+      var marker = L.circleMarker([b.lat, b.lon], {
+        radius: 5,
+        color: "red",
+        fillColor: "red",
+        fillOpacity: 0.8,
+        weight: 1
+      });
+      marker.bindTooltip(b.name);
+
+      var popup = '<div class="bothy-popup"><b>' + escapeHtml(b.name) + "</b>";
+      popup += '<br><a href="' + escapeHtml(b.url) + '" target="_blank" rel="noopener">View on MBA site</a></div>';
+      marker.bindPopup(popup);
+
+      bothiesLayer.addLayer(marker);
+    });
+
+    var toggle = document.getElementById("bothies-toggle");
+    function syncBothies() {
+      if (toggle.checked) map.addLayer(bothiesLayer);
+      else map.removeLayer(bothiesLayer);
+    }
+    toggle.addEventListener("change", syncBothies);
+    syncBothies();
+  });
+
 function updateSliderRanges() {
   var elevMin = Infinity, elevMax = -Infinity;
 
