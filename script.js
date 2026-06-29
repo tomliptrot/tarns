@@ -119,11 +119,11 @@ fetch("bothies.json")
         fillOpacity: 0.8,
         weight: 1
       });
-      marker.bindTooltip(b.name);
 
       var popup = '<div class="bothy-popup"><b>' + escapeHtml(b.name) + "</b>";
       popup += '<br><a href="' + escapeHtml(b.url) + '" target="_blank" rel="noopener">View on MBA site</a></div>';
       marker.bindPopup(popup);
+      marker.on("mouseover", function () { marker.openPopup(); });
 
       bothiesLayer.addLayer(marker);
     });
